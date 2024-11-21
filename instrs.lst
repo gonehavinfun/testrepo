@@ -1,0 +1,148 @@
+ADC <Wd>, <Wn>, <Wm>
+ADC <Xd>, <Xn>, <Xm>
+ADCS <Wd>, <Wn>, <Wm>
+ADCS <Xd>, <Xn>, <Xm>
+ADD <Wd>, <Wn>, <Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}
+ADD <Xd>, <Xn>, <Xm|Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}
+ADD <Wd>, <Wn>, #<imm> {,<shift:LSL #0|LSL #12>}
+ADD <Xd>, <Xn>, #<imm> {,<shift:LSL #0|LSL #12>}
+ADD <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR> #<amount>}
+ADD <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR> #<amount>}
+ADDS <Wd>, <Wn>, <Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}
+ADDS <Xd>, <Xn>, <Xm|Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}
+ADDS <Wd>, <Wn>, #<imm> {,<shift:LSL #0|LSL #12>}
+ADDS <Xd>, <Xn>, #<imm> {,<shift:LSL #0|LSL #12>}
+ADDS <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR> #<amount>}
+ADDS <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR> #<amount>}
+AND <Wd>, <Wn>, #<imm>
+AND <Xd>, <Xn>, #<imm>
+AND <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+AND <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+ANDS <Wd>, <Wn>, #<imm>
+ANDS <Xd>, <Xn>, #<imm>
+ANDS <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+ANDS <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+ASRV <Wd>, <Wn>, <Wm>
+ASRV <Xd>, <Xn>, <Xm>
+BFM <Wd>, <Wn>, #<immr>, #<imms>
+BFM <Xd>, <Xn>, #<immr>, #<imms>
+BIC <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+BIC <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+BICS <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+BICS <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+CLREX {#<imm>}
+CLS <Wd>, <Wn>
+CLS <Xd>, <Xn>
+CLZ <Wd>, <Wn>
+CLZ <Xd>, <Xn>
+CRC32B <Wd>, <Wn>, <Wm>
+CRC32H <Wd>, <Wn>, <Wm>
+CRC32W <Wd>, <Wn>, <Wm>
+CRC32X <Wd>, <Wn>, <Xm>
+CRC32CB <Wd>, <Wn>, <Wm>
+CRC32CH <Wd>, <Wn>, <Wm>
+CRC32CW <Wd>, <Wn>, <Wm>
+CRC32CX <Wd>, <Wn>, <Xm>
+CSEL <Wd>, <Wn>, <Wm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+CSEL <Xd>, <Xn>, <Xm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+CSINC <Wd>, <Wn>, <Wm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+CSINC <Xd>, <Xn>, <Xm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+CSINV <Wd>, <Wn>, <Wm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+CSINV <Xd>, <Xn>, <Xm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+CSNEG <Wd>, <Wn>, <Wm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+CSNEG <Xd>, <Xn>, <Xm>, <cond:AL|CC|CS|EQ|GE|GT|HI|LE|LS|LT|MI|NE|NV|PL|VC|VS>
+EON <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+EON <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+EOR <Wd>, <Wn>, #<imm>
+EOR <Xd>, <Xn>, #<imm>
+EOR <Wd>, <Wn>, <Wm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+EOR <Xd>, <Xn>, <Xm> {,<shift:ASR|LSL|LSR|ROR> #<amount>}
+EXTR <Wd>, <Wn>, <Wm>, #<lsb>
+EXTR <Xd>, <Xn>, <Xm>, #<lsb>
+LDAR <Wt>, [<Xn> {, #0}]
+LDAR <Xt>, [<Xn> {, #0}]
+LDARB <Wt>, [<Xn> {, #0}]
+LDARH <Wt>, [<Xn> {, #0}]
+LDAXP <Wt1>, <Wt2>, [<Xn> {, #0}]
+LDAXP <Xt1>, <Xt2>, [<Xn> {, #0}]
+LDAXR <Wt>, [<Xn> {, #0}]
+LDAXR <Xt>, [<Xn> {, #0}]
+LDAXRB <Wt>, [<Xn> {, #0}]
+LDAXRH <Wt>, [<Xn> {, #0}]
+LDNP <Wt1>, <Wt2>, [<Xn> {, #<imm>}]
+LDNP <Xt1>, <Xt2>, [<Xn> {, #<imm>}]
+LDP <Wt1>, <Wt2>, [<Xn>], #<imm>
+LDP <Xt1>, <Xt2>, [<Xn>], #<imm>
+LDP <Wt1>, <Wt2>, [<Xn>, #<imm>]!
+LDP <Xt1>, <Xt2>, [<Xn>, #<imm>]!
+LDP <Wt1>, <Wt2>, [<Xn> {, #<imm>}]
+LDP <Xt1>, <Xt2>, [<Xn> {, #<imm>}]
+LDPSW <Xt1>, <Xt2>, [<Xn>], #<imm>
+LDPSW <Xt1>, <Xt2>, [<Xn>, #<imm>]!
+LDPSW <Xt1>, <Xt2>, [<Xn> {, #<imm>}]
+LDR <Wt>, [<Xn>], #<simm>
+LDR <Xt>, [<Xn>], #<simm>
+LDR <Wt>, [<Xn>, #<simm>]!
+LDR <Xt>, [<Xn>, #<simm>]!
+LDR <Wt>, [<Xn> {, #<pimm>}]
+LDR <Xt>, [<Xn> {, #<pimm>}]
+LDRB <Wt>, [<Xn>], #<simm>
+LDRB <Wt>, [<Xn>, #<simm>]!
+LDRB <Wt>, [<Xn> {, #<pimm>}]
+LDRB <Wt>, [<Xn>, <Xm> {, LSL <amount>}]
+LDRH <Wt>, [<Xn>], #<simm>
+LDRH <Wt>, [<Xn>, #<simm>]!
+LDRH <Wt>, [<Xn> {, #<pimm>}]
+LDRSB <Wt>, [<Xn>], #<simm>
+LDRSB <Xt>, [<Xn>], #<simm>
+LDRSB <Wt>, [<Xn>, #<simm>]!
+LDRSB <Xt>, [<Xn>, #<simm>]!
+LDRSB <Wt>, [<Xn> {, #<pimm>}]
+LDRSB <Xt>, [<Xn> {, #<pimm>}]
+LDRSB <Wt>, [<Xn>, <Xm> {, LSL <amount>}]
+LDRSB <Xt>, [<Xn>, <Xm> {, LSL <amount>}]
+LDRSH <Wt>, [<Xn>], #<simm>
+LDRSH <Xt>, [<Xn>], #<simm>
+LDRSH <Wt>, [<Xn>, #<simm>]!
+LDRSH <Xt>, [<Xn>, #<simm>]!
+LDRSH <Wt>, [<Xn> {, #<pimm>}]
+LDRSH <Xt>, [<Xn> {, #<pimm>}]
+LDRSW <Xt>, [<Xn>], #<simm>
+LDRSW <Xt>, [<Xn>, #<simm>]!
+LDRSW <Xt>, [<Xn> {, #<pimm>}]
+LDTR <Wt>, [<Xn> {, #<simm>}]
+LDTR <Xt>, [<Xn> {, #<simm>}]
+LDTRB <Wt>, [<Xn> {, #<simm>}]
+LDTRH <Wt>, [<Xn> {, #<simm>}]
+LDTRSB <Wt>, [<Xn> {, #<simm>}]
+LDTRSB <Xt>, [<Xn> {, #<simm>}]
+LDTRSH <Wt>, [<Xn> {, #<simm>}]
+LDTRSH <Xt>, [<Xn> {, #<simm>}]
+LDTRSW <Xt>, [<Xn> {, #<simm>}]
+LDUR <Wt>, [<Xn> {, #<simm>}]
+LDUR <Xt>, [<Xn> {, #<simm>}]
+LDURB <Wt>, [<Xn> {, #<simm>}]
+LDURH <Wt>, [<Xn> {, #<simm>}]
+LDURSB <Wt>, [<Xn> {, #<simm>}]
+LDURSB <Xt>, [<Xn> {, #<simm>}]
+LDURSH <Wt>, [<Xn> {, #<simm>}]
+LDURSH <Xt>, [<Xn> {, #<simm>}]
+LDURSW <Xt>, [<Xn> {, #<simm>}]
+LDXP <Wt1>, <Wt2>, [<Xn> {, #0}]
+LDXP <Xt1>, <Xt2>, [<Xn> {, #0}]
+LDXR <Wt>, [<Xn> {, #0}]
+LDXR <Xt>, [<Xn> {, #0}]
+LDXRB <Wt>, [<Xn> {, #0}]
+LDXRH <Wt>, [<Xn> {, #0}]
+LSLV <Wd>, <Wn>, <Wm>
+LSLV <Xd>, <Xn>, <Xm>
+LSRV <Wd>, <Wn>, <Wm>
+LSRV <Xd>, <Xn>, <Xm>
+MADD <Wd>, <Wn>, <Wm>, <Wa>
+MADD <Xd>, <Xn>, <Xm>, <Xa>
+MOVK <Wd>, #<imm> {, LSL #<shift>}
+MOVK <Xd>, #<imm> {, LSL #<shift>}
+MOVN <Wd>, #<imm> {, LSL #<shift>}
+MOVN <Xd>, #<imm> {, LSL #<shift>}
+MOVZ <Wd>, #<imm> {, LSL #<shift>}
+MOVZ <Xd>, #<imm> {, LSL #<shift>}
