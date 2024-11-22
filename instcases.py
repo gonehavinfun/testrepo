@@ -8,8 +8,8 @@ from random import sample
 
 #set variables
 randomreg = random.choice(range(1,30))
-#randomreg = str(randomreg)
-regpattern = '[X]m> '
+#only one replace for now
+regpattern = 'n>'
 replacement = str(randomreg) + " "
 
 #create arguments parser
@@ -20,8 +20,8 @@ stringsamount = args.casesamount
 
 
 #open and read file
-#with open('instrs.lst') as filevar:
-with open('limitedcases.lst') as filevar:
+with open('instrs.lst') as filevar:
+#with open('limitedcases.lst') as filevar:
     list = filevar.readlines()
 filevar.closed
 #print(read_data)
@@ -33,7 +33,7 @@ resultlines = str(resultlines)
 
 #print chosen lines and required amount of strings
 print(randomreg)
-print(resultlines)
+#print(resultlines)
 
 #search and replacements
 subresult = re.sub(regpattern, replacement, resultlines)
