@@ -1,4 +1,4 @@
-#output lines shouldn't be repeated
+#output lines can be repeated
 
 #import python modules
 import argparse
@@ -18,14 +18,11 @@ parser.add_argument("casesamount", help="write number of test cases required", t
 args = parser.parse_args()
 stringsamount = args.casesamount
 
-
 #open and read file
 with open('instrs.lst') as filevar:
-#with open('limitedcases.lst') as filevar:
     list = filevar.readlines()
 filevar.closed
 #print(read_data)
-#stringsamount =
 
 #random choices of strings
 resultlines = "".join(random.choices(list, k=stringsamount))
