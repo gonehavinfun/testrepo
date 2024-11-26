@@ -2,6 +2,7 @@
 # 1. random numbers in each line
 # 2. other functions: couple of registers, extentions, amount
 # 3. fix join
+# 4. put only functions calls to main
 
 
 #output lines can be repeated
