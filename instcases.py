@@ -1,5 +1,6 @@
 #to do: 
-# 2. other functions: couple of registers, extentions, amount
+# 1. random numbers in each line - done
+# 2. other functions: couple of registers - done; extentions; amount
 # 3. fix join
 # 4. put only functions calls to main
 
@@ -35,7 +36,8 @@ def main():
     print('modified lines:')
     
     for x in chosenlines:
-        print(replace_registers(x))
+        print(replace_alternative_registers(replace_registers(x)))
+
         
         
 def replace_registers(line):
@@ -46,9 +48,33 @@ def replace_registers(line):
     
     #capture groups(), raw strings in regex r', set of characters[], number
     # of occurrences{}, zero or one occurrence?  
-    regpattern = r'(<)([A-Z]{1})([a-z]{1}[0-9]?>)'
+    regpattern = r'(<)([A-Z]{1})([a-z]{1}[0-9]?)(>)'
     #capture group number reference before number \g<number>
     replacement = r'\g<2>' + randomreg
+    line = str.strip(line)
+
+    #save old line state
+    oldlinestate = line
+    #re.sub with 2 regex
+    line = re.sub(regpattern, replacement, line, count=1)
+    #ending recursion when there is nothing more to replace 
+    if line == oldlinestate:
+     return line
+
+    
+    return replace_registers(line)
+
+def replace_alternative_registers(line):
+    randomreg = str(random.choice(range(1, 30)))
+    capturegroup_list = [2, 5]
+    random_capturegroup = str(random.choice(capturegroup_list))
+
+    #capture groups(), raw strings in regex r', set of characters[], number
+    # of occurrences{}, zero or one occurrence?  
+    regpattern = r'(<)([A-Z]{1})([a-z]{1}[0-9]?)(\|)([A-Z]{1})([a-z]{1}[0-9]?)(>)'
+    #regpattern = r'(<)([A-Z]{1})([a-z]{1}[0-9]?)(\|)([A-Z]{1})'
+    #capture group number reference before number \g<number>
+    replacement = r'\g<' + random_capturegroup + '>' + randomreg
     line = str.strip(line)
 
     #save old line state

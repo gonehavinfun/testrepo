@@ -1,5 +1,2 @@
-LDARB <Wt>, [<Xn> {, #0}]
-LDR <Wt>, [<Xn>], #<simm>
-LDAXRH <Wt>, [<Xn> {, #0}]
-LDP <Xt1>, <Xt2>, [<Xn>], #<imm>
-AND <Xd>, <Xn>, #<imm>
+ADD <Xd>, <Xn>, <Xm|Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}
+ADDS <Xd>, <Xn>, <Xm|Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}
