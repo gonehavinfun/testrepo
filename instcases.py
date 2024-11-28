@@ -1,5 +1,4 @@
 #to do: 
-# 1. random numbers in each line
 # 2. other functions: couple of registers, extentions, amount
 # 3. fix join
 # 4. put only functions calls to main
@@ -34,13 +33,13 @@ def main():
     #print chosen lines
     print('unmodified lines:\n' + resultlines)
     print('modified lines:')
+    
     for x in chosenlines:
-        print(function2(function1(x)))
+        print(replace_registers(x))
         
-
-
-def function1(line):
-    randomreg = str(random.choice(range(1,30)))
+        
+def replace_registers(line):
+    randomreg = str(random.choice(range(1, 30)))
 
     #this is all madness https://stackoverflow.com/questions/5984633/python-re-sub-group-number-after-number
     #escaping escape symbols https://skillbox.ru/media/code/regulyarnye-vyrazheniya-v-python-sintaksis-poleznye-funktsii-i-zadachi/
@@ -51,12 +50,16 @@ def function1(line):
     #capture group number reference before number \g<number>
     replacement = r'\g<2>' + randomreg
     line = str.strip(line)
-    #re.sub with 2 regex
-    line = re.sub(regpattern, replacement, line)
-    return line
 
-def function2(line):
-    line = line + ' +2'
-    return line
+    #save old line state
+    oldlinestate = line
+    #re.sub with 2 regex
+    line = re.sub(regpattern, replacement, line, count=1)
+    #ending recursion when there is nothing more to replace 
+    if line == oldlinestate:
+     return line
+
+    
+    return replace_registers(line)
 
 main()
