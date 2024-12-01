@@ -1,7 +1,7 @@
 #to do: 
 # 1. random numbers in each line - done
 # 2. other functions: couple of registers - done; extentions; amount
-# 3. fix join
+# 3. fix unmodified lines output 
 # 4. put only functions calls to main
 
 
@@ -21,22 +21,22 @@ def main():
     stringsamount = args.casesamount
 
     #open and read file
-    with open('instrs.lst') as filevar:
-    #with open('limitedcases.lst') as filevar:
+    #with open('instrs.lst') as filevar:
+    with open('limitedcases.lst') as filevar:
         list = filevar.readlines()
     filevar.closed
 
     #random choices of strings
     chosenlines = random.choices(list, k=stringsamount)
-    resultlines = "".join(chosenlines)
-    resultlines = str(resultlines)
 
     #print chosen lines
-    print('unmodified lines:\n' + resultlines)
+    print('unmodified lines:')
+    #print(*chosenlines, sep='\n')
+    print(*chosenlines)
     print('modified lines:')
     
     for x in chosenlines:
-        print(replace_alternative_registers(replace_registers(x)))
+        print(replace_extentions(replace_alternative_registers(replace_registers(x))))
 
         
         
@@ -72,7 +72,6 @@ def replace_alternative_registers(line):
     #capture groups(), raw strings in regex r', set of characters[], number
     # of occurrences{}, zero or one occurrence?  
     regpattern = r'(<)([A-Z]{1})([a-z]{1}[0-9]?)(\|)([A-Z]{1})([a-z]{1}[0-9]?)(>)'
-    #regpattern = r'(<)([A-Z]{1})([a-z]{1}[0-9]?)(\|)([A-Z]{1})'
     #capture group number reference before number \g<number>
     replacement = r'\g<' + random_capturegroup + '>' + randomreg
     line = str.strip(line)
@@ -86,6 +85,30 @@ def replace_alternative_registers(line):
      return line
 
     
-    return replace_registers(line)
+    return replace_alternative_registers(line)
+
+def replace_extentions(line):
+
+    line = str.strip(line)
+
+    # of occurrences{}, zero or one occurrence? 
+    #capture groups(), raw strings in regex r', set of characters[]
+    extpattern = r'(\ )(\{)(\,)(\<)([a-z]*)([:]?)([A-Z|]*)(\>)' 
+
+    #set pattern for list of extentions
+    extentions_list_pattern = r'([A-Z|]*)(\>)'
+    extentions_list = (re.search(extentions_list_pattern,line)).group(1).split('|')
+    
+    #setting random extentions
+    random_extention = str(random.choice(extentions_list))
+
+    #capture group number reference before number \g<number>
+    replacement = r'\g<3> ' + random_extention
+
+    #re.sub with 2 regex (extpattern and replacement)
+    line = re.sub(extpattern, replacement, line)
+
+    #ending recursion when there is nothing more to replace 
+    return line
 
 main()
