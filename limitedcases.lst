@@ -1,4 +1,1 @@
-LDRB <Wt>, [<Xn>, <Xm> {, LSL <amount>}]
-ADDS <Wd>, <Wn>, <Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}
-ADDS <Xd>, <Xn>, #<imm> {,<shift:LSL #0|LSL #12>}
-CLREX {#<imm>}
+ADD <Xd>, <Xn>, <Xm|Wm> {,<extend:LSL|SXTB|SXTH|SXTW|SXTX|UXTB|UXTH|UXTW|UXTX> {#<amount>}}

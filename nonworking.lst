@@ -1,0 +1,2 @@
+CLREX {#<imm>}
+LDRB <Wt>, [<Xn>, <Xm> {, LSL <amount>}]
